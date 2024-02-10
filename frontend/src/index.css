@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-sideways {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+  }
+}

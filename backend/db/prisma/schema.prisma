@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  exp      String @default("0")
+  comleted String @default("0")
+  goals    Goal[]
+}
+
+model Goal {
+  id          Int       @id @default(autoincrement())
+  heading     String
+  description String?
+  completed   Boolean   @default(false)
+  everyDay    Boolean   @default(false)
+  everyWeek   Boolean   @default(false)
+  onWeekDays  String?
+  date        DateTime?
+  tasks       Task[]
+  User        User?     @relation(fields: [userId], references: [id])
+  userId      Int?
+}
+
+model Task {
+  id        Int     @id @default(autoincrement())
+  heading   String
+  completed Boolean @default(false)
+  Goal      Goal?   @relation(fields: [goalId], references: [id])
+  goalId    Int?
+}
