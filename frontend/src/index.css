@@ -7,4 +7,14 @@
     writing-mode: vertical-rl;
     text-orientation: sideways;
   }
+  .desc {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 200ms, opacity 250ms;
+  }
+  .desc.opened-desc {
+    max-height: 2000px;
+    opacity: 1;
+    transition: max-height 600ms, opacity 300ms;
+  }
 }

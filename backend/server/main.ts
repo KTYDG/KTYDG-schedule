@@ -1,19 +1,21 @@
-import { Prisma, PrismaClient } from '@prisma/client'
 import express from 'express'
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger-output.json';
 
-const prisma = new PrismaClient()
+import goal from './routes/goal'
+import index from './routes/index'
+
+
 const app = express()
-
 app.use(express.json())
-
-app.get('/', async (req, res) => {
-  const users = await prisma.user.findMany()
-  res.json(users)
-})
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 
-const server = app.listen(3000, () =>
+app.use("/", index)
+app.use("/goal", goal)
+
+
+app.listen(3000, () =>
   console.log(`
-🚀 Server ready at: http://localhost:3000
-⭐️ See sample requests: http://pris.ly/e/ts/rest-express#3-using-the-rest-api`),
+🚀 Server ready at: http://localhost:3000/docs`),
 )

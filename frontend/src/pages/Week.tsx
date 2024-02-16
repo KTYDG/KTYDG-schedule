@@ -2,7 +2,7 @@ import Sheet from '../components/Sheet';
 
 const Week = () => {
   return (
-    <Sheet></Sheet>
+    <Sheet>{""}</Sheet>
   );
 };
 

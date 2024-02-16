@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: "'Comic Neue', cursive;"
+      sans: "'Comic Neue', cursive;",
     },
     extend: {
       boxShadow: {

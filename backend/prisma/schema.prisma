@@ -19,16 +19,16 @@ model User {
 }
 
 model Goal {
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   heading     String
   description String?
-  completed   Boolean   @default(false)
-  everyDay    Boolean   @default(false)
-  everyWeek   Boolean   @default(false)
+  completed   Boolean  @default(false)
+  everyDay    Boolean  @default(false)
+  everyWeek   Boolean  @default(false)
   onWeekDays  String?
-  date        DateTime?
+  date        DateTime
   tasks       Task[]
-  User        User?     @relation(fields: [userId], references: [id])
+  User        User?    @relation(fields: [userId], references: [id])
   userId      Int?
 }
 

@@ -1,0 +1,145 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API for scheduler",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Тестовый запрос",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      }
+    },
+    "/goal/": {
+      "get": {
+        "tags": [
+          "Goals"
+        ],
+        "description": "Получить все существующие цели",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Goals"
+        ],
+        "description": "Создать новую цель",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "heading": {
+                  "type": "string",
+                  "example": "Цель"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Закончить документацию"
+                },
+                "completed": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "everyDay": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "everyWeek": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "onWeekDays": {
+                  "type": "string",
+                  "example": "Monday Tuesday"
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2024-01-30T00:00:00+00:00"
+                }
+              },
+              "required": [
+                "heading",
+                "description",
+                "completed",
+                "everyDay",
+                "everyWeek",
+                "onWeekDays",
+                "date"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Goals"
+        ],
+        "description": "Изменить цель",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "heading": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "everyDay": {
+                  "example": "any"
+                },
+                "everyWeek": {
+                  "example": "any"
+                },
+                "onWeekDays": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "418": {
+            "description": "I'm a teapot"
+          }
+        }
+      }
+    }
+  }
+}

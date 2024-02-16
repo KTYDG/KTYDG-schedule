@@ -1,8 +1,14 @@
+import Goal from '../components/Goal';
 import Sheet from '../components/Sheet';
 
 const Day = () => {
   return (
-    <Sheet></Sheet>
+    <Sheet>
+      <Goal />
+      <Goal />
+      <Goal />
+      <Goal />
+    </Sheet>
   );
 };
 
